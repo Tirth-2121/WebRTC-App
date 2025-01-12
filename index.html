@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P Call</title>
+    <link rel="icon" href="./image.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Custom scrollbar style for the text area */
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        textarea::-webkit-scrollbar-track {
+            background-color: #2d2d2d;
+            border-radius: 4px;
+        }
+
+        textarea::-webkit-scrollbar-thumb {
+            background-color: #6366f1;
+            border-radius: 4px;
+        }
+
+        textarea::-webkit-scrollbar-thumb:hover {
+            background-color: #4f46e5;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 flex flex-col items-center justify-center min-h-screen text-white">
+
+    <!-- Video Players -->
+    <div id="videos" class="flex flex-col md:flex-row w-full h-2/3 gap-2 px-4">
+        <video class="video-player w-full md:w-1/2 h-64 md:h-full object-cover rounded-lg border-2 border-gray-700 shadow-lg" id="user-1" autoplay playsinline></video>
+        <video class="video-player w-full md:w-1/2 h-64 md:h-full object-cover rounded-lg border-2 border-gray-700 shadow-lg" id="user-2" autoplay playsinline></video>
+    </div>
+
+    <!-- Mute and Hang Up Buttons -->
+    <div class="flex gap-4 mt-4">
+        <!-- Mute Button with Icon -->
+        <button id="mute-btn" class="flex items-center gap-2 px-6 py-2 bg-yellow-600 hover:bg-yellow-700 rounded-lg shadow-md">
+            <i class="fas fa-microphone"></i> Mute
+        </button>
+
+        <button id="hangup-btn" class="flex items-center gap-2 px-6 py-2 bg-red-600 hover:bg-red-700 rounded-lg shadow-md">
+            <i class="fas fa-phone-slash"></i> Hang Up
+        </button>
+
+        <button id="add-answer" class="flex items-center gap-2 px-6 py-2 bg-green-600 hover:bg-green-700 rounded-lg shadow-md"><i class="fas fa-phone"></i>Answer</button>
+    </div>
+
+    <!-- Offer/Answer Controls -->
+    <div class="mt-6 w-4/5 mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-stretch">
+        <div class="flex flex-col items-center">
+            <label for="offer-sdp" class="mt-2">SDP Offer</label>
+            <textarea id="offer-sdp" class="w-full h-32 p-2 mt-1 rounded-md bg-gray-800 border border-gray-700"></textarea>
+            <button id="create-offer" class="px-6 py-2 mt-2 bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md">Create Offer</button>
+        </div>
+
+        <div class="flex flex-col items-center">
+            <label for="answer-sdp" class="mt-2">SDP Answer</label>
+            <textarea id="answer-sdp" class="w-full h-32 p-2 mt-1 rounded-md bg-gray-800 border border-gray-700"></textarea>
+            <button id="create-answer" class="px-6 py-2 mt-2 bg-purple-600 hover:bg-purple-700 rounded-lg shadow-md">Create Answer</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
